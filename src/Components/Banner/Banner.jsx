@@ -2,7 +2,7 @@ import { TbArrowUpRight } from "react-icons/tb";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="mt-5">
       <div className="flex justify-center items-center">
         <div className="hidden md:block flex-1">
           <img src="https://i.ibb.co/wwdx1w0/Complete-task.png" alt="" />
