@@ -3,7 +3,8 @@ import Home from "../Pages/Home/Home";
 import Main from "../Layouts/Main";
 import Dashbord from "../Pages/Dashbord/Dashbord";
 import Error from "../Pages/Error/Error";
-import SignUp from "../Pages/SingUp/SingUp";
+import SignUp from "../Pages/SignUp/SignUp";
+import Login from "../Pages/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,13 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/singup",
+    path: "/signup",
     element: <SignUp />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
     errorElement: <Error />,
   },
 ]);

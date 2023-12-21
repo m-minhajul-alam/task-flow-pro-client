@@ -81,9 +81,9 @@ const Navbar = () => {
                 Login
               </button>
             </Link>
-            <Link to={"/singup"}>
+            <Link to={"/signup"}>
               <button className="btn btn-primary btn-sm rounded-full text-md font-bold text-white transition-transform hover:scale-105">
-                Sing Up
+                Sign Up
               </button>
             </Link>
           </div>
@@ -126,9 +126,9 @@ const Navbar = () => {
                 </li>
                 <li>
                   {" "}
-                  <Link to={"/singup"}>
+                  <Link to={"/signup"}>
                     <button className="btn btn-primary btn-sm rounded-full text-sm font-bold text-white">
-                      Sing Up
+                      Sign Up
                     </button>
                   </Link>
                 </li>

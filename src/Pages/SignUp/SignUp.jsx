@@ -14,16 +14,42 @@ const SignUp = () => {
   //   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-   
+    // createUser(data.email, data.password).then((result) => {
+    //   const loggedUser = result.user;
+    //   console.log(loggedUser);
+    //   updateUserProfile(data.name, data.photoURL)
+    //     .then(() => {
+    //       // create user entry in the database
+    //       const userInfo = {
+    //         name: data.name,
+    //         email: data.email,
+    //       };
+    //       axiosPublic.post("/users", userInfo).then((res) => {
+    //         if (res.data.insertedId) {
+    //           console.log("user added to the database");
+    //           reset();
+    //           Swal.fire({
+    //             position: "top-end",
+    //             icon: "success",
+    //             title: "User created successfully.",
+    //             showConfirmButton: false,
+    //             timer: 1500,
+    //           });
+    //           navigate("/");
+    //         }
+    //       });
+    //     })
+    //     .catch((error) => console.log(error));
+    // });
   };
 
   return (
-    <div className="max-w-6xl w-[90%] mx-auto my-5">
+    <div className="max-w-4xl w-[90%] mx-auto my5">
       <Helmet>
         <title>Sign Up | TaskFlowPro</title>
       </Helmet>
 
-      <div className="hero min-h-screen">
+      <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left flex-1">
             <h1 className="text-3xl font-bold text-center text-primary mb-3">
@@ -132,15 +158,15 @@ const SignUp = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn btn-primary rounded-full text-white transition-transform hover:scale-105"
+                  className="btn btn-primary rounded-full text-white text-lg transition-transform hover:scale-105"
                   type="submit"
                   value="Sign Up"
                 />
               </div>
             </form>
-            <p className="px-6">
+            <p className="mx-auto mb-3">
               <small>
-                Already have an account <Link to="/login">Login</Link>
+                Already have an account? Please <Link className="hover:underline" to="/login">Login</Link>
               </small>
             </p>
             {/* <SocialLogin></SocialLogin> */}
