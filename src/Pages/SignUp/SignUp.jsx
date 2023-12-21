@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   //   const axiosPublic = useAxiosPublic();
@@ -44,7 +45,10 @@ const SignUp = () => {
   };
 
   return (
-    <div className="max-w-4xl w-[90%] mx-auto my5">
+    <div
+      className="max-w-4xl w-[90%] mx-auto my5"
+      style={{ fontFamily: "Josefin Slab" }}
+    >
       <Helmet>
         <title>Sign Up | TaskFlowPro</title>
       </Helmet>
@@ -164,12 +168,22 @@ const SignUp = () => {
                 />
               </div>
             </form>
-            <p className="mx-auto mb-3">
+            <p className="mx-auto text-center mb-3">
               <small>
-                Already have an account? Please <Link className="hover:underline" to="/login">Login</Link>
+                Already have an account? Please{" "}
+                <Link className="hover:underline" to="/login">
+                  Login
+                </Link>
+              </small>
+              <br />
+              <small>
+                Do it later? Please{" "}
+                <Link className="hover:underline" to="/">
+                  Go to home
+                </Link>
               </small>
             </p>
-            {/* <SocialLogin></SocialLogin> */}
+            <SocialLogin />
           </div>
         </div>
       </div>

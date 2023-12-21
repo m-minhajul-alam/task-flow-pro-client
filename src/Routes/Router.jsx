@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import Main from "../Layouts/Main";
-import Dashbord from "../Pages/Dashbord/Dashbord";
 import Error from "../Pages/Error/Error";
 import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
+import TaskDashboard from "../Pages/TaskDashboard/TaskDashboard";
+import TaskForm from "../Components/TaskForm/TaskForm";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +18,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/dashbord",
-        element: <Dashbord />,
+        path: "/taskdashbord",
+        element: <TaskDashboard />,
+      },
+      {
+        path: "/taskform",
+        element: <TaskForm />,
       },
     ],
   },

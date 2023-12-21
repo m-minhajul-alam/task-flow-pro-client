@@ -19,14 +19,14 @@ const Navbar = () => {
 
       <li>
         <NavLink
-          to={"/dashbord"}
+          to={"/taskdashbord"}
           className={({ isActive }) =>
             isActive
               ? "font-semibold text-primary border-b-2 border-primary"
               : "text-xs"
           }
         >
-          Dashbord
+          Task Dashboard
         </NavLink>
       </li>
 

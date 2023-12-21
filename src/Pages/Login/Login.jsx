@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const Login = () => {
   //   const [disabled, setDisabled] = useState(true);
@@ -46,7 +47,10 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-4xl w-[90%] mx-auto my5">
+    <div
+      className="max-w-4xl w-[90%] mx-auto my5"
+      style={{ fontFamily: "Josefin Slab" }}
+    >
       <Helmet>
         <title>Login | TaskFlowPro</title>
       </Helmet>
@@ -101,12 +105,22 @@ const Login = () => {
             </div>
           </form>
 
-          <p className="mx-auto mb-3">
+          <p className="mx-auto text-center mb-3">
             <small>
-              New Here? Please <Link className="hover:underline" to="/signup">Create an account</Link>
+              New Here? Please{" "}
+              <Link className="hover:underline" to="/signup">
+                SignUp
+              </Link>
+            </small>
+            <br />
+            <small>
+              Do it later? Please{" "}
+              <Link className="hover:underline" to="/">
+                Go to home
+              </Link>
             </small>
           </p>
-          {/* <SocialLogin></SocialLogin> */}
+          <SocialLogin />
         </div>
       </div>
     </div>
