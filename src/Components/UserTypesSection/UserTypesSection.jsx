@@ -7,7 +7,7 @@ const UserTypesSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {/* Developers User Type Card  */}
-        <div className="bg-white p-4 rounded shadow space-y-3">
+        <div className="bg-white p-4 rounded shadow space-y-3 hover:scale-105">
           <div className="flex justify-start items-center">
             <div>
               <img
@@ -27,7 +27,7 @@ const UserTypesSection = () => {
         </div>
 
         {/* Corporate Professional User Type Card  */}
-        <div className="bg-white p-4 rounded shadow space-y-3">
+        <div className="bg-white p-4 rounded shadow space-y-3 hover:scale-105">
           <div className="flex justify-start items-center">
             <img
               className="w-8 mr-3"
@@ -45,7 +45,7 @@ const UserTypesSection = () => {
         </div>
 
         {/* Banker User Type Card  */}
-        <div className="bg-white p-4 rounded shadow space-y-3">
+        <div className="bg-white p-4 rounded shadow space-y-3 hover:scale-105">
           <div className="flex justify-start items-center">
             <img
               className="w-8 mr-3"
@@ -63,7 +63,7 @@ const UserTypesSection = () => {
         </div>
 
         {/* Freelancers User Type Card  */}
-        <div className="bg-white p-4 rounded shadow space-y-3">
+        <div className="bg-white p-4 rounded shadow space-y-3 hover:scale-105">
           <div className="flex justify-start items-center">
             <img
               className="w-8 mr-3"
@@ -82,7 +82,7 @@ const UserTypesSection = () => {
         </div>
 
         {/* Project Managers User Type Card  */}
-        <div className="bg-white p-4 rounded shadow space-y-3">
+        <div className="bg-white p-4 rounded shadow space-y-3 hover:scale-105">
           <div className="flex justify-start items-center">
             <img
               className="w-8 mr-3"
@@ -101,7 +101,7 @@ const UserTypesSection = () => {
         </div>
 
         {/* Students User Type Card  */}
-        <div className="bg-white p-4 rounded shadow space-y-3">
+        <div className="bg-white p-4 rounded shadow space-y-3 hover:scale-105">
           <div className="flex justify-start items-center">
             <img
               className="w-8 mr-3"

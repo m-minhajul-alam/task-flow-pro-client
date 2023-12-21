@@ -1,4 +1,5 @@
 import { TbArrowUpRight } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -14,9 +15,11 @@ const Banner = () => {
             Boost Your <br />
             Productivity
           </h1>
-          <button className="btn btn-primary btn-md rounded-full text-lg font-bold text-white">
-            Let’s Explore <TbArrowUpRight />
-          </button>
+          <Link to={"/singup"}>
+            <button className="btn btn-primary btn-md rounded-full text-lg font-bold text-white transition-transform hover:scale-105">
+              Let’s Explore <TbArrowUpRight />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

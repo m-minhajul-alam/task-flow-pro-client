@@ -33,29 +33,22 @@ const Footer = () => {
               </span>
             </Link>
             <ul className="w-full flex flex-col justify-center items-center md:items-start gap-3 my-3">
-              <li className="btn btn-primary btn-sm rounded-full text-md font-bold text-white">
-                <Link className="inline-block py-1 pr-2 transition-transform hover:scale-105">
-                  Login
-                </Link>
+              <li className="btn btn-primary btn-sm rounded-full text-md font-bold text-white transition-transform hover:scale-105">
+                <Link className="inline-block py-1 pr-2 ">Login</Link>
               </li>
-              <li className="btn btn-primary btn-sm rounded-full text-md font-bold text-white">
-                <Link className="inline-block py-1 pr-2 transition-transform hover:scale-105">
-                  Sing Up
-                </Link>
+              <li className="btn btn-primary btn-sm rounded-full text-md font-bold text-white transition-transform hover:scale-105">
+                <Link className="inline-block py-1 pr-2 ">Sing Up</Link>
               </li>
             </ul>
           </div>
           {SITEMAP.map(({ title, links }, key) => (
             <div key={key} className="w-full text-center ">
-              <p
-                color="blue-gray"
-                className="mb-4 font-bold uppercase opacity-50"
-              >
+              <p className="mb-4 text-primary font-bold uppercase opacity-60">
                 {title}
               </p>
               <ul className="space-y-1">
                 {links.map((link, key) => (
-                  <p key={key} color="blue-gray" className="font-normal">
+                  <p key={key} className="font-normal">
                     <Link className="inline-block py-1 pr-2 transition-transform hover:scale-105">
                       {link}
                     </Link>
@@ -68,9 +61,8 @@ const Footer = () => {
 
         <div className="flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
           <p className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0">
-            &copy; {currentYear}{" "}
-            <a href="https://material-tailwind.com/">Task Flow Pro</a>. All
-            Rights Reserved.
+            &copy; {currentYear} <Link to={"/"}>Task Flow Pro</Link>. All Rights
+            Reserved.
           </p>
           <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
             {/* Facebook */}

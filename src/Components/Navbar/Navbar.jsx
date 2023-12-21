@@ -77,12 +77,12 @@ const Navbar = () => {
         >
           <div className="flex justify-center items-center">
             <Link to={"/login"}>
-              <button className="btn btn-ghost btn-sm rounded-full text-primary text-lg font-bold mr-1">
+              <button className="btn btn-ghost btn-sm rounded-full text-primary text-lg font-bold mr-1 transition-transform hover:scale-105">
                 Login
               </button>
             </Link>
             <Link to={"/singup"}>
-              <button className="btn btn-primary btn-sm rounded-full text-md font-bold text-white">
+              <button className="btn btn-primary btn-sm rounded-full text-md font-bold text-white transition-transform hover:scale-105">
                 Sing Up
               </button>
             </Link>
