@@ -10,7 +10,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "font-semibold text-primary border-b-2 border-primary"
-              : "text-gray-300 text-xs"
+              : "text-xs"
           }
         >
           Home
@@ -23,7 +23,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "font-semibold text-primary border-b-2 border-primary"
-              : "text-gray-300 text-xs"
+              : "text-xs"
           }
         >
           Dashbord
@@ -36,7 +36,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "font-semibold text-primary border-b-2 border-primary"
-              : "text-gray-300 text-xs"
+              : "text-xs"
           }
         >
           Contact
@@ -48,7 +48,7 @@ const Navbar = () => {
   return (
     <div className="mt-2">
       {/* Navbar for md and lg screen */}
-      <div className="navbar hidden bg-neutral rounded-full lg:flex">
+      <div className="navbar hidden rounded-full lg:flex shadow-sm">
         <div
           data-aos="fade-down"
           data-aos-duration="1000"
@@ -56,8 +56,12 @@ const Navbar = () => {
         >
           <div>
             <Link to={"/"} className="text-primary text-2xl font-bold ">
-              <span>
-                TaskFlow<span className="text-red-600">Pro</span>
+              <span
+                className="font-extrabold"
+                style={{ fontFamily: "Josefin Sans" }}
+              >
+                TaskFlow
+                <span className="text-red-600 font-light">pro</span>
               </span>
             </Link>
           </div>
@@ -78,7 +82,7 @@ const Navbar = () => {
               </button>
             </Link>
             <Link to={"/singup"}>
-              <button className="btn btn-primary btn-sm rounded-full text-md font-bold text-black">
+              <button className="btn btn-primary btn-sm rounded-full text-md font-bold text-white">
                 Sing Up
               </button>
             </Link>
@@ -86,12 +90,16 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Navbar for sm screen */}
-      <div className="navbar lg:hidden bg-neutral rounded-full">
+      {/* Navbar for sm & md screen */}
+      <div className="navbar lg:hidden rounded-full  shadow-sm">
         <div className="flex-1 ml-3">
-          <Link to={"/"} className="text-primary text-xl font-bold ">
-            <span>
-              TaskFlow<span className="text-red-600">Pro</span>
+          <Link to={"/"} className="text-primary text-2xl font-bold ">
+            <span
+              className="font-extrabold"
+              style={{ fontFamily: "Josefin Sans" }}
+            >
+              TaskFlow
+              <span className="text-red-600 font-light">pro</span>
             </span>
           </Link>
         </div>
@@ -100,7 +108,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="dropdown text-gray-400 dropdown-end">
               <label tabIndex={0} className="\">
-                <button className="text-white text-2xl mr-2">
+                <button className="text-2xl mr-2">
                   <TbMenuDeep />
                 </button>
               </label>
@@ -119,7 +127,7 @@ const Navbar = () => {
                 <li>
                   {" "}
                   <Link to={"/singup"}>
-                    <button className="btn btn-primary btn-sm rounded-full text-sm font-bold text-black">
+                    <button className="btn btn-primary btn-sm rounded-full text-sm font-bold text-white">
                       Sing Up
                     </button>
                   </Link>

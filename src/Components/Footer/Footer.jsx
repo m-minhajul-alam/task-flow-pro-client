@@ -17,24 +17,28 @@ const SITEMAP = [
 
 const currentYear = new Date().getFullYear();
 
-export function FooterWithSitemap() {
+const Footer = () => {
   return (
     <footer className="relative w-full">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="mx-auto grid w-full grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="text-center md:text-start">
             <Link to={"/"} className="text-primary text-2xl font-bold ">
-              <span>
-                TaskFlow<span className="text-red-600">Pro</span>
+              <span
+                className="font-extrabold"
+                style={{ fontFamily: "Josefin Sans" }}
+              >
+                TaskFlow
+                <span className="text-red-600 font-light">pro</span>
               </span>
             </Link>
             <ul className="w-full flex flex-col justify-center items-center md:items-start gap-3 my-3">
-              <li className="btn btn-primary btn-sm rounded-full text-md font-bold text-gray-100">
+              <li className="btn btn-primary btn-sm rounded-full text-md font-bold text-white">
                 <Link className="inline-block py-1 pr-2 transition-transform hover:scale-105">
                   Login
                 </Link>
               </li>
-              <li className="btn btn-primary btn-sm rounded-full text-md font-bold text-gray-100">
+              <li className="btn btn-primary btn-sm rounded-full text-md font-bold text-white">
                 <Link className="inline-block py-1 pr-2 transition-transform hover:scale-105">
                   Sing Up
                 </Link>
@@ -149,4 +153,6 @@ export function FooterWithSitemap() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

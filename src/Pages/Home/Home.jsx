@@ -1,11 +1,13 @@
 import Banner from "../../Components/Banner/Banner";
-import { FooterWithSitemap } from "../../Components/Footer/Footer";
+import Footer from "../../Components/Footer/Footer";
+import UserTypesSection from "../../Components/UserTypesSection/UserTypesSection";
 
 const Home = () => {
   return (
     <div>
       <Banner />
-      <FooterWithSitemap/>
+      <UserTypesSection />
+      <Footer />
     </div>
   );
 };
