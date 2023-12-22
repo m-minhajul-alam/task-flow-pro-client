@@ -1,49 +1,30 @@
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  //   const [disabled, setDisabled] = useState(true);
-  //   const { signIn } = useContext(AuthContext);
-  //   const navigate = useNavigate();
-  //   const location = useLocation();
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  //   const from = location.state?.from?.pathname || "/";
-  //   console.log("state in the location login page", location.state);
-
-  //   useEffect(() => {
-  //     loadCaptchaEnginge(6);
-  //   }, []);
+  const from = location.state?.from?.pathname || "/taskdashbord";
+  console.log("state in the location login page", location.state);
 
   const handleLogin = (event) => {
-    // event.preventDefault();
-    // const form = event.target;
-    // const email = form.email.value;
-    // const password = form.password.value;
-    // console.log(email, password);
-    // signIn(email, password).then((result) => {
-    //   const user = result.user;
-    //   console.log(user);
-    //   Swal.fire({
-    //     title: "User Login Successful.",
-    //     showClass: {
-    //       popup: "animate__animated animate__fadeInDown",
-    //     },
-    //     hideClass: {
-    //       popup: "animate__animated animate__fadeOutUp",
-    //     },
-    //   });
-    //   navigate(from, { replace: true });
-    // });
-  };
-
-  const handleValidateCaptcha = (e) => {
-    // const user_captcha_value = e.target.value;
-    // if (validateCaptcha(user_captcha_value)) {
-    //   setDisabled(false);
-    // } else {
-    //   setDisabled(true);
-    // }
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+      toast.success("User Login Successful.");
+      navigate(from, { replace: true });
+    });
   };
 
   return (

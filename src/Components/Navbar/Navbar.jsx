@@ -1,7 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
 import { TbMenuDeep } from "react-icons/tb";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const navLinks = (
     <>
       <li>
@@ -76,16 +84,27 @@ const Navbar = () => {
           className="navbar-end mr-4"
         >
           <div className="flex justify-center items-center">
-            <Link to={"/login"}>
-              <button className="btn btn-ghost btn-sm rounded-full text-primary text-lg font-bold mr-1 transition-transform hover:scale-105">
-                Login
+            {user ? (
+              <button
+                onClick={handleLogOut}
+                className="btn btn-primary btn-sm rounded-full text-md font-bold text-white transition-transform hover:scale-105"
+              >
+                LogOut
               </button>
-            </Link>
-            <Link to={"/signup"}>
-              <button className="btn btn-primary btn-sm rounded-full text-md font-bold text-white transition-transform hover:scale-105">
-                Sign Up
-              </button>
-            </Link>
+            ) : (
+              <div>
+                <Link to={"/login"}>
+                  <button className="btn btn-ghost btn-sm rounded-full text-primary text-lg font-bold mr-1 transition-transform hover:scale-105">
+                    Login
+                  </button>
+                </Link>
+                <Link to={"/signup"}>
+                  <button className="btn btn-primary btn-sm rounded-full text-md font-bold text-white transition-transform hover:scale-105">
+                    Sign Up
+                  </button>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

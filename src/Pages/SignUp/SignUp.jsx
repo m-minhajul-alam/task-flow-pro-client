@@ -1,47 +1,44 @@
-import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const SignUp = () => {
-  //   const axiosPublic = useAxiosPublic();
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
-    // reset,
+    reset,
     formState: { errors },
   } = useForm();
-  //   const { createUser, updateUserProfile } = useContext(AuthContext);
-  //   const navigate = useNavigate();
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    // createUser(data.email, data.password).then((result) => {
-    //   const loggedUser = result.user;
-    //   console.log(loggedUser);
-    //   updateUserProfile(data.name, data.photoURL)
-    //     .then(() => {
-    //       // create user entry in the database
-    //       const userInfo = {
-    //         name: data.name,
-    //         email: data.email,
-    //       };
-    //       axiosPublic.post("/users", userInfo).then((res) => {
-    //         if (res.data.insertedId) {
-    //           console.log("user added to the database");
-    //           reset();
-    //           Swal.fire({
-    //             position: "top-end",
-    //             icon: "success",
-    //             title: "User created successfully.",
-    //             showConfirmButton: false,
-    //             timer: 1500,
-    //           });
-    //           navigate("/");
-    //         }
-    //       });
-    //     })
-    //     .catch((error) => console.log(error));
-    // });
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+          };
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              console.log("user added to the database");
+              reset();
+              toast.success("Successfully Sign Up!");
+              navigate("/taskdashbord");
+            }
+          });
+        })
+        .catch((error) => console.log(error));
+    });
   };
 
   return (

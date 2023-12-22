@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const TaskDashboard = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   // Sample tasks for each list
   const todoTasks = [
     { id: 1, title: "Task 1" },
@@ -19,13 +24,17 @@ const TaskDashboard = () => {
       <div className="flex justify-around items-center p-4">
         <div className="flex items-center">
           <img
-            src={"https://i.ibb.co/3mz2BvY/Login-Ilas.png"}
+            src={user?.photoURL}
             alt="User Profile"
             className="rounded-full h-12 w-12 mr-4"
           />
           <div>
-            <h2 className="text-xl font-semibold">{`Welcome, skib!`}</h2>
-            <p className="text-gray-600">{`(sakib@gmail.com)`}</p>
+            <h2 className="text-xl font-semibold">{`Welcome ${
+              user?.displayName || ""
+            }!`}</h2>
+            <p className="text-gray-600">{`(${
+              user?.email || "your@email.com"
+            })`}</p>
           </div>
         </div>
 
@@ -38,30 +47,27 @@ const TaskDashboard = () => {
         </div>
       </div>
 
-      
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
         {/* To-Do List */}
         <div className="task-list w-full">
           <h2 className="text-lg font-semibold mb-4">To-Do</h2>
           {todoTasks.map((task) => (
             <div key={task.id} className="bg-white p-4 rounded mb-4 shadow">
-            <h4 className="text-lg font-semibold mb-2">{task.title}</h4>
-            <p className="text-gray-600">{task.description}</p>
-            <div className="mt-2 flex justify-between items-center">
-              <span className="text-sm text-gray-500">ask.status</span>
-              <div className="flex space-x-2">
-                <button  className="text-red-500 hover:text-red-700">
-                  Delete
-                </button>
-            
-                  <button  className="text-blue-500 hover:text-blue-700">
+              <h4 className="text-lg font-semibold mb-2">{task.title}</h4>
+              <p className="text-gray-600">{task.description}</p>
+              <div className="mt-2 flex justify-between items-center">
+                <span className="text-sm text-gray-500">ask.status</span>
+                <div className="flex space-x-2">
+                  <button className="text-red-500 hover:text-red-700">
+                    Delete
+                  </button>
+
+                  <button className="text-blue-500 hover:text-blue-700">
                     Edit
                   </button>
-               
+                </div>
               </div>
             </div>
-          </div>
             // <div key={task.id}>
             //   {/* Display task details here */}
             //   {task.title}
@@ -75,22 +81,21 @@ const TaskDashboard = () => {
           <h2 className="text-lg font-semibold mb-4">Ongoing</h2>
           {ongoingTasks.map((task) => (
             <div key={task.id} className="bg-white p-4 rounded mb-4 shadow">
-            <h4 className="text-lg font-semibold mb-2">{task.title}</h4>
-            <p className="text-gray-600">{task.description}</p>
-            <div className="mt-2 flex justify-between items-center">
-              <span className="text-sm text-gray-500">ask.status</span>
-              <div className="flex space-x-2">
-                <button  className="text-red-500 hover:text-red-700">
-                  Delete
-                </button>
-            
-                  <button  className="text-blue-500 hover:text-blue-700">
+              <h4 className="text-lg font-semibold mb-2">{task.title}</h4>
+              <p className="text-gray-600">{task.description}</p>
+              <div className="mt-2 flex justify-between items-center">
+                <span className="text-sm text-gray-500">ask.status</span>
+                <div className="flex space-x-2">
+                  <button className="text-red-500 hover:text-red-700">
+                    Delete
+                  </button>
+
+                  <button className="text-blue-500 hover:text-blue-700">
                     Edit
                   </button>
-               
+                </div>
               </div>
             </div>
-          </div>
           ))}
         </div>
 
@@ -98,23 +103,22 @@ const TaskDashboard = () => {
         <div className="task-list w-full">
           <h2 className="text-lg font-semibold mb-4">Completed</h2>
           {completedTasks.map((task) => (
-           <div key={task.id} className="bg-white p-4 rounded mb-4 shadow">
-           <h4 className="text-lg font-semibold mb-2">{task.title}</h4>
-           <p className="text-gray-600">{task.description}</p>
-           <div className="mt-2 flex justify-between items-center">
-             <span className="text-sm text-gray-500">ask.status</span>
-             <div className="flex space-x-2">
-               <button  className="text-red-500 hover:text-red-700">
-                 Delete
-               </button>
-           
-                 <button  className="text-blue-500 hover:text-blue-700">
-                   Edit
-                 </button>
-              
-             </div>
-           </div>
-         </div>
+            <div key={task.id} className="bg-white p-4 rounded mb-4 shadow">
+              <h4 className="text-lg font-semibold mb-2">{task.title}</h4>
+              <p className="text-gray-600">{task.description}</p>
+              <div className="mt-2 flex justify-between items-center">
+                <span className="text-sm text-gray-500">ask.status</span>
+                <div className="flex space-x-2">
+                  <button className="text-red-500 hover:text-red-700">
+                    Delete
+                  </button>
+
+                  <button className="text-blue-500 hover:text-blue-700">
+                    Edit
+                  </button>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
