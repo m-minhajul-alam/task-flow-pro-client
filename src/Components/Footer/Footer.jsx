@@ -34,10 +34,14 @@ const Footer = () => {
             </Link>
             <ul className="w-full flex flex-col justify-center items-center md:items-start gap-3 my-3">
               <li className="btn btn-primary btn-sm rounded-full text-md font-bold text-white transition-transform hover:scale-105">
-                <Link className="inline-block py-1 pr-2 ">Login</Link>
+                <Link to={"/login"} className="inline-block py-1 pr-2 ">
+                  Login
+                </Link>
               </li>
               <li className="btn btn-primary btn-sm rounded-full text-md font-bold text-white transition-transform hover:scale-105">
-                <Link className="inline-block py-1 pr-2 ">Sing Up</Link>
+                <Link to={"/signup"} className="inline-block py-1 pr-2 ">
+                  Sign Up
+                </Link>
               </li>
             </ul>
           </div>
