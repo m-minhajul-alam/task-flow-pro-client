@@ -1,13 +1,12 @@
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const EditTask = () => {
-  //   const axiosPublic = useAxiosPublic();
   //   const { user } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
   const { id } = useParams();
@@ -54,20 +53,21 @@ const EditTask = () => {
     );
   }
 
-  console.log(tasks);
-
   const onSubmit = (data) => {
-    const newTask = {
+    const editedTask = {
       title: data?.title,
       description: data?.description,
       deadline: data?.deadline,
       priority: data?.priority,
       ownerEmail: user?.email,
     };
+    console.log(editedTask);
 
-    axiosPublic.post("/tasks", newTask).then((res) => {
-      if (res.data.insertedId) {
-        toast.success("Task added!");
+    const id = tasks?._id;
+    axiosPublic.patch(`/tasks/${id}`, editedTask).then((data) => {
+      if (data.data.modifiedCount > 0) {
+        toast.success("Task Editing Succes!");
+        navigaet("/taskdashbord");
         reset();
       }
     });
@@ -81,7 +81,7 @@ const EditTask = () => {
 
       <div className="flex-1">
         <h2 className="text-3xl text-center text-primary font-bold mb-3">
-          Edit {tasks.title} Task
+          Edit {tasks?.title} Task
         </h2>
         <img
           className="hidden md:block"
@@ -102,7 +102,7 @@ const EditTask = () => {
             </label>
             <input
               type="text"
-              defaultValue={tasks.title}
+              defaultValue={tasks?.title}
               id="title"
               name="title"
               {...register("title", { required: true })}
@@ -119,7 +119,7 @@ const EditTask = () => {
               Description
             </label>
             <textarea
-              defaultValue={tasks.description}
+              defaultValue={tasks?.description}
               id="description"
               name="description"
               {...register("description")}
@@ -137,7 +137,7 @@ const EditTask = () => {
             </label>
             <input
               type="date"
-              defaultValue={tasks.deadline}
+              defaultValue={tasks?.deadline}
               id="deadline"
               name="deadline"
               {...register("deadline")}

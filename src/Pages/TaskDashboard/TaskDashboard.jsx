@@ -13,6 +13,7 @@ const TaskDashboard = () => {
   const {
     isPending,
     isError,
+    isFetching,
     error,
     refetch,
     data: tasks,
@@ -24,10 +25,19 @@ const TaskDashboard = () => {
     },
   });
 
-  if (isPending) {
+  if (isPending || isFetching) {
     return (
       <div className="h-screen flex justify-center items-center">
         <span className="loading loading-ring loading-lg text-primary"></span>
+      </div>
+    );
+  }
+
+  if (!tasks) {
+    return (
+      <div className="h-screen flex justify-center items-center text-red-600">
+        {error.message}
+        No Data Found
       </div>
     );
   }

@@ -51,7 +51,7 @@ const SignUp = () => {
       </Helmet>
 
       <div className="hero">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero-content flex-col md:flex-row-reverse">
           <div className="text-center lg:text-left flex-1">
             <h1 className="text-3xl font-bold text-center text-primary mb-3">
               Sign up now!
