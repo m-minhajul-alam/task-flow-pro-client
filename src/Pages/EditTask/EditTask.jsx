@@ -2,15 +2,15 @@ import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const EditTask = () => {
-  //   const { user } = useContext(AuthContext);
-  const { register, handleSubmit, reset } = useForm();
+  const { user } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm();
   const { id } = useParams();
-  const { user } = useAuth();
   const navigaet = useNavigate();
   const axiosPublic = useAxiosPublic();
 
@@ -63,12 +63,10 @@ const EditTask = () => {
     };
     console.log(editedTask);
 
-    const id = tasks?._id;
-    axiosPublic.patch(`/tasks/${id}`, editedTask).then((data) => {
+    axiosPublic.patch(`/tasks/${tasks._id}`, editedTask).then((data) => {
       if (data.data.modifiedCount > 0) {
-        toast.success("Task Editing Succes!");
+        toast.success("Task edited");
         navigaet("/taskdashbord");
-        reset();
       }
     });
   };
