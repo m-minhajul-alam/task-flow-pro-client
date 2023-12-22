@@ -25,18 +25,22 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      <li>
-        <NavLink
-          to={"/taskdashbord"}
-          className={({ isActive }) =>
-            isActive
-              ? "font-semibold text-primary border-b-2 border-primary"
-              : "text-xs"
-          }
-        >
-          Task Dashboard
-        </NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to={"/taskdashbord"}
+              className={({ isActive }) =>
+                isActive
+                  ? "font-semibold text-primary border-b-2 border-primary"
+                  : "text-xs"
+              }
+            >
+              Task Dashboard
+            </NavLink>
+          </li>
+        </>
+      )}
 
       <li>
         <NavLink
@@ -136,21 +140,34 @@ const Navbar = () => {
                 className="dropdown-content z-[1] p-2 text-center text-xs space-y-2 shadow bg-base-100 rounded-xl w-40 mt-3"
               >
                 {navLinks}
-                <li>
-                  <Link to={"/login"}>
-                    <button className="btn btn-ghost btn-sm rounded-full text-primary text-md font-bold mr-1">
-                      Login
+                {user ? (
+                  <li>
+                    <button
+                      onClick={handleLogOut}
+                      className="btn btn-primary btn-sm rounded-full text-sm font-bold text-white"
+                    >
+                      LogOut
                     </button>
-                  </Link>
-                </li>
-                <li>
-                  {" "}
-                  <Link to={"/signup"}>
-                    <button className="btn btn-primary btn-sm rounded-full text-sm font-bold text-white">
-                      Sign Up
-                    </button>
-                  </Link>
-                </li>
+                  </li>
+                ) : (
+                  <>
+                    <li>
+                      <Link to={"/login"}>
+                        <button className="btn btn-ghost btn-sm rounded-full text-primary text-md font-bold mr-1">
+                          Login
+                        </button>
+                      </Link>
+                    </li>
+                    <li>
+                      {" "}
+                      <Link to={"/signup"}>
+                        <button className="btn btn-primary btn-sm rounded-full text-sm font-bold text-white">
+                          Sign Up
+                        </button>
+                      </Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </div>

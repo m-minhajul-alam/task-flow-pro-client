@@ -6,6 +6,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
 import TaskDashboard from "../Pages/TaskDashboard/TaskDashboard";
 import TaskForm from "../Components/TaskForm/TaskForm";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/taskdashbord",
-        element: <TaskDashboard />,
+        element: (
+          <PrivateRoute>
+            <TaskDashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/taskform",

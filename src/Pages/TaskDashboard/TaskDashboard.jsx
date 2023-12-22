@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { MdDragIndicator, MdDelete, MdEditSquare } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
@@ -21,14 +22,14 @@ const TaskDashboard = () => {
   return (
     <div className="my-5">
       {/* user profile */}
-      <div className="flex justify-around items-center p-4">
-        <div className="flex items-center">
+      <div className="flex flex-col md:flex-row justify-around items-center p-4 gap-3">
+        <div className="flex flex-col md:flex-row items-center gap-3">
           <img
             src={user?.photoURL}
             alt="User Profile"
-            className="rounded-full h-12 w-12 mr-4"
+            className="rounded-full h-24 md:h-12 w-24 md:w-12 mr-4"
           />
-          <div>
+          <div className="text-center md:text-start">
             <h2 className="text-xl font-semibold">{`Welcome ${
               user?.displayName || ""
             }!`}</h2>
@@ -59,20 +60,18 @@ const TaskDashboard = () => {
                 <span className="text-sm text-gray-500">ask.status</span>
                 <div className="flex space-x-2">
                   <button className="text-red-500 hover:text-red-700">
-                    Delete
+                    <MdDelete />
                   </button>
 
                   <button className="text-blue-500 hover:text-blue-700">
-                    Edit
+                    <MdEditSquare />
+                  </button>
+                  <button className="text-gray-500 hover:text-gray-700 cursor-grab">
+                    <MdDragIndicator />
                   </button>
                 </div>
               </div>
             </div>
-            // <div key={task.id}>
-            //   {/* Display task details here */}
-            //   {task.title}
-            //   <button onClick={() => handleTaskDelete(task.id)}>Delete</button>
-            // </div>
           ))}
         </div>
 
@@ -87,11 +86,14 @@ const TaskDashboard = () => {
                 <span className="text-sm text-gray-500">ask.status</span>
                 <div className="flex space-x-2">
                   <button className="text-red-500 hover:text-red-700">
-                    Delete
+                    <MdDelete />
                   </button>
 
                   <button className="text-blue-500 hover:text-blue-700">
-                    Edit
+                    <MdEditSquare />
+                  </button>
+                  <button className="text-gray-500 hover:text-gray-700 cursor-grab">
+                    <MdDragIndicator />
                   </button>
                 </div>
               </div>
@@ -110,11 +112,14 @@ const TaskDashboard = () => {
                 <span className="text-sm text-gray-500">ask.status</span>
                 <div className="flex space-x-2">
                   <button className="text-red-500 hover:text-red-700">
-                    Delete
+                    <MdDelete />
                   </button>
 
                   <button className="text-blue-500 hover:text-blue-700">
-                    Edit
+                    <MdEditSquare />
+                  </button>
+                  <button className="text-gray-500 hover:text-gray-700 cursor-grab">
+                    <MdDragIndicator />
                   </button>
                 </div>
               </div>

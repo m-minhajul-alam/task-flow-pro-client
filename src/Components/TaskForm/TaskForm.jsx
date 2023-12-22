@@ -1,11 +1,31 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../Providers/AuthProvider";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import toast from "react-hot-toast";
 
 const TaskForm = () => {
+  const axiosPublic = useAxiosPublic();
+  const { user } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
 
-  const onSubmit = () => {
-    reset();
+  const onSubmit = (data) => {
+    const newTask = {
+      title: data?.title,
+      description: data?.description,
+      deadline: data?.deadline,
+      priority: data?.priority,
+      ownerEmail: user?.email,
+    };
+    console.log(newTask);
+
+    axiosPublic.post("/tasks", newTask).then((res) => {
+      if (res.data.insertedId) {
+        toast.success("Task added!");
+        reset();
+      }
+    });
   };
 
   return (
@@ -111,3 +131,8 @@ const TaskForm = () => {
 };
 
 export default TaskForm;
+
+// deadline: "2023-12-22"
+// description: "I need to early slipp."
+// priority: "high"
+// title: "Early Slip"
