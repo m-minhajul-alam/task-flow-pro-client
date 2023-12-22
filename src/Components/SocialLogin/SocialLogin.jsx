@@ -2,6 +2,7 @@ import { FaGoogle } from "react-icons/fa";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const SocialLogin = () => {
   const { googleSignIn } = useAuth();
@@ -17,6 +18,7 @@ const SocialLogin = () => {
       };
       axiosPublic.post("/users", userInfo).then((res) => {
         console.log(res.data);
+        toast.success("Success with google!")
         navigate("/taskdashbord");
       });
     });

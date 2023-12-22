@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import TaskDashboard from "../Pages/TaskDashboard/TaskDashboard";
 import TaskForm from "../Components/TaskForm/TaskForm";
 import PrivateRoute from "./PrivateRoute";
+import EditTask from "../Pages/EditTask/EditTask";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/taskform",
-        element: <TaskForm />,
+        element: (
+          <PrivateRoute>
+            <TaskForm />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/tasks/:id",
+        element: (
+          <PrivateRoute>
+            <EditTask />
+          </PrivateRoute>
+        ),
       },
     ],
   },

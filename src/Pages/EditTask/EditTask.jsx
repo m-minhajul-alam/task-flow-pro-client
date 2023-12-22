@@ -1,14 +1,60 @@
-import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../Providers/AuthProvider";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
+import { useNavigate, useParams } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
 
-const TaskForm = () => {
-  const axiosPublic = useAxiosPublic();
-  const { user } = useContext(AuthContext);
+const EditTask = () => {
+  //   const axiosPublic = useAxiosPublic();
+  //   const { user } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
+  const { id } = useParams();
+  const { user } = useAuth();
+  const navigaet = useNavigate();
+  const axiosPublic = useAxiosPublic();
+
+  const {
+    isPending,
+    isError,
+    error,
+    isFetching,
+    data: tasks,
+  } = useQuery({
+    queryKey: ["tasks"],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/tasks/${id}`);
+      return res.data;
+    },
+  });
+
+  if (isPending || isFetching) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        <span className="loading loading-ring loading-lg text-primary"></span>
+      </div>
+    );
+  }
+
+  if (!tasks) {
+    return (
+      <div className="h-screen flex justify-center items-center text-red-600">
+        {error.message}
+        No Data Found
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="h-screen flex justify-center items-center text-red-600">
+        {error.message}
+      </div>
+    );
+  }
+
+  console.log(tasks);
 
   const onSubmit = (data) => {
     const newTask = {
@@ -30,16 +76,16 @@ const TaskForm = () => {
   return (
     <div className="flex flex-col md:flex-row-reverse justify-center items-center my-8">
       <Helmet>
-        <title>Task Form | TaskFlowPro</title>
+        <title> Edit Task | TaskFlowPro</title>
       </Helmet>
 
       <div className="flex-1">
         <h2 className="text-3xl text-center text-primary font-bold mb-3">
-          Add New Task
+          Edit {tasks.title} Task
         </h2>
         <img
           className="hidden md:block"
-          src="https://i.ibb.co/6JKFGYs/tasks.png"
+          src="https://i.ibb.co/KKtvfyF/Forms.png"
           alt=""
         />
       </div>
@@ -56,6 +102,7 @@ const TaskForm = () => {
             </label>
             <input
               type="text"
+              defaultValue={tasks.title}
               id="title"
               name="title"
               {...register("title", { required: true })}
@@ -72,6 +119,7 @@ const TaskForm = () => {
               Description
             </label>
             <textarea
+              defaultValue={tasks.description}
               id="description"
               name="description"
               {...register("description")}
@@ -89,6 +137,7 @@ const TaskForm = () => {
             </label>
             <input
               type="date"
+              defaultValue={tasks.deadline}
               id="deadline"
               name="deadline"
               {...register("deadline")}
@@ -106,6 +155,7 @@ const TaskForm = () => {
             </label>
             <select
               id="priority"
+              defaultValue={tasks.priority}
               name="priority"
               {...register("priority")}
               className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
@@ -121,7 +171,7 @@ const TaskForm = () => {
             type="submit"
             className="btn btn-primary w-full rounded-full text-lg text-white font-bold transition-transform hover:scale-105"
           >
-            Add Task
+            Edit Task
           </button>
         </form>
       </div>
@@ -129,5 +179,4 @@ const TaskForm = () => {
   );
 };
 
-export default TaskForm;
-
+export default EditTask;
