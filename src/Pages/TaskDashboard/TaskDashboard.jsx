@@ -114,7 +114,7 @@ const TaskDashboard = () => {
           <h2 className="text-lg font-semibold mb-4">To-Do</h2>
           {tasks?.map((task) => (
             <>
-              {user.email === task.ownerEmail ? (
+              {user.email === task.ownerEmail && (
                 <div
                   key={task?._id}
                   className="bg-white p-4 rounded mb-4 shadow"
@@ -144,8 +144,6 @@ const TaskDashboard = () => {
                     </div>
                   </div>
                 </div>
-              ) : (
-                "No Task Added"
               )}
             </>
           ))}

@@ -27,10 +27,10 @@ const SocialLogin = () => {
   return (
     <div className="mb-8">
       <div className="divider">or</div>
-      <div className="max-w-xs mx-auto hover:text-white">
+      <div className="max-w-xs mx-auto">
         <button
           onClick={handleGoogleSignIn}
-          className="btn btn-outline btn-primary text-white text-lg rounded-full w-full transition-transform hover:scale-105"
+          className="btn btn-outline btn-primary text-lg rounded-full w-full hover:scale-105"
         >
           <FaGoogle className="mr-2"></FaGoogle>
           Continue With Google
