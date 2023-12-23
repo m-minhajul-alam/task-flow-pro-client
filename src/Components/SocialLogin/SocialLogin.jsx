@@ -27,7 +27,7 @@ const SocialLogin = () => {
   return (
     <div className="mb-8">
       <div className="divider">or</div>
-      <div className="max-w-xs mx-auto">
+      <div className="max-w-xs mx-auto hover:text-white">
         <button
           onClick={handleGoogleSignIn}
           className="btn btn-outline btn-primary text-white text-lg rounded-full w-full transition-transform hover:scale-105"

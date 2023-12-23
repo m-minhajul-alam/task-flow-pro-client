@@ -86,18 +86,16 @@ const TaskDashboard = () => {
       {/* user profile */}
       <div className="flex flex-col md:flex-row justify-around items-center p-4 gap-3">
         <div className="flex flex-col md:flex-row items-center gap-3">
-          <img
-            src={user?.photoURL}
-            alt="User Profile"
-            className="rounded-full h-24 md:h-12 w-24 md:w-12 mr-4"
-          />
+          {user?.photoURL && (
+            <img
+              src={user?.photoURL}
+              alt="User Profile"
+              className="rounded-full h-24 md:h-12 w-24 md:w-12 mr-4"
+            />
+          )}
           <div className="text-center md:text-start">
-            <h2 className="text-xl font-semibold">{`Welcome ${
-              user?.displayName || ""
-            }!`}</h2>
-            <p className="text-gray-600">{`(${
-              user?.email || "your@email.com"
-            })`}</p>
+            <h2 className="text-xl font-semibold">{`Welcome, ${user?.displayName}!`}</h2>
+            <p className="text-gray-600">{`(${user?.email})`}</p>
           </div>
         </div>
 
