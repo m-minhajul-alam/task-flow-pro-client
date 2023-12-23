@@ -153,7 +153,7 @@ const Navbar = () => {
                   <>
                     <li>
                       <Link to={"/login"}>
-                        <button className="btn btn-ghost btn-sm rounded-full text-primary text-md font-bold mr-1">
+                        <button className="btn btn-primary btn-sm rounded-full text-sm font-bold text-white">
                           Login
                         </button>
                       </Link>
