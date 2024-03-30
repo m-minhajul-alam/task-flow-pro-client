@@ -119,7 +119,7 @@ const TaskForm = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="btn btn-primary w-full rounded-full text-lg text-white font-bold transition-transform hover:scale-105"
+            className="btn btn-primary w-full rounded-full text-lg text-white font-bold hover:scale-105 transition-transform"
           >
             Add Task
           </button>

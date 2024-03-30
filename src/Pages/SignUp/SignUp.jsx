@@ -161,7 +161,7 @@ const SignUp = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn btn-primary rounded-full text-white text-lg hover:scale-105 transition-all duration-300"
+                  className="btn btn-primary rounded-full text-white text-lg hover:scale-105 transition-transform"
                   type="submit"
                   value="Sign Up"
                 />
@@ -171,7 +171,7 @@ const SignUp = () => {
               <small>
                 Already have an account? Please{" "}
                 <Link
-                  className="hover:underline transition-all duration-300 cursor-pointer"
+                  className="hover:underline transition-transform cursor-pointer"
                   to="/login"
                 >
                   Login
@@ -181,7 +181,7 @@ const SignUp = () => {
               <small>
                 Do it later? Please{" "}
                 <Link
-                  className="hover:underline transition-all duration-300 cursor-pointer"
+                  className="hover:underline transition-transform cursor-pointer"
                   to="/"
                 >
                   Go to home

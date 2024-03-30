@@ -30,7 +30,7 @@ const SocialLogin = () => {
       <div className="max-w-xs mx-auto px-3 lg:px-0">
         <button
           onClick={handleGoogleSignIn}
-          className="btn btn-outline border-primary text-primary text-lg rounded-full w-full hover:scale-105 hover:text-white hover:bg-primary hover:border-primary transition-all duration-300"
+          className="btn btn-outline border-primary text-primary text-lg rounded-full w-full hover:scale-105 hover:text-white hover:bg-primary hover:border-primary transition-transform"
         >
           <span className="flex items-center gap-2">
             <FaGoogle></FaGoogle>

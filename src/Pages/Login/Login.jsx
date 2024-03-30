@@ -79,7 +79,7 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <input
-                className="btn btn-primary text-white text-lg rounded-full hover:scale-105 transition-all duration-300"
+                className="btn btn-primary text-white text-lg rounded-full hover:scale-105 transition-transform"
                 type="submit"
                 value="Login"
               />
@@ -90,7 +90,7 @@ const Login = () => {
             <small>
               New Here? Please{" "}
               <Link
-                className="hover:underline transition-all duration-300 cursor-pointer"
+                className="hover:underline transition-transform cursor-pointer"
                 to="/signup"
               >
                 SignUp
@@ -100,7 +100,7 @@ const Login = () => {
             <small>
               Do it later? Please{" "}
               <Link
-                className="hover:underline transition-all duration-300 cursor-pointer"
+                className="hover:underline transition-transform cursor-pointer"
                 to="/"
               >
                 Go to home
