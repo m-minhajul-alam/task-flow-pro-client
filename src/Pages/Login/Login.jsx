@@ -79,24 +79,30 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <input
-                className="btn btn-primary text-white text-lg rounded-full transition-transform hover:scale-105"
+                className="btn btn-primary text-white text-lg rounded-full hover:scale-105 transition-all duration-300"
                 type="submit"
                 value="Login"
               />
             </div>
           </form>
 
-          <p className="mx-auto text-center mb-3">
+          <p className="mx-auto text-center mb-3 cursor-default">
             <small>
               New Here? Please{" "}
-              <Link className="hover:underline" to="/signup">
+              <Link
+                className="hover:underline transition-all duration-300 cursor-pointer"
+                to="/signup"
+              >
                 SignUp
               </Link>
             </small>
             <br />
             <small>
               Do it later? Please{" "}
-              <Link className="hover:underline" to="/">
+              <Link
+                className="hover:underline transition-all duration-300 cursor-pointer"
+                to="/"
+              >
                 Go to home
               </Link>
             </small>
