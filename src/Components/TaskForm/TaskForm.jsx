@@ -59,7 +59,7 @@ const TaskForm = () => {
               id="title"
               name="title"
               {...register("title", { required: true })}
-              className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+              className="shadow appearance-none border rounded-full w-full py-2 px-5 text-gray-700 leading-tight focus:outline-none"
             />
           </div>
 
@@ -75,7 +75,7 @@ const TaskForm = () => {
               id="description"
               name="description"
               {...register("description")}
-              className="shadow appearance-none border rounded-full w-full py-2 px-5 text-gray-700 leading-tight focus:outline-none"
+              className="shadow appearance-none border rounded-3xl w-full py-3 px-5 text-gray-700 leading-tight focus:outline-none"
             />
           </div>
 
@@ -130,4 +130,3 @@ const TaskForm = () => {
 };
 
 export default TaskForm;
-
