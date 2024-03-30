@@ -208,8 +208,3 @@ const TaskDashboard = () => {
 };
 
 export default TaskDashboard;
-
-// deadline: "2023-12-22"
-// description: "I need to early slipp."
-// priority: "high"
-// title: "Early Slip"
