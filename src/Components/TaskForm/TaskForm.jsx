@@ -111,7 +111,7 @@ const TaskForm = () => {
               className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
             >
               <option value="low">Low</option>
-              <option value="moderate">Moderate</option>
+              <option value="medium">Medium</option>
               <option value="high">High</option>
             </select>
           </div>
