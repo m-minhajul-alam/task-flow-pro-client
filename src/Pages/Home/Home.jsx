@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import Banner from "../../Components/Banner/Banner";
 import Footer from "../../Components/Footer/Footer";
 import UserTypesSection from "../../Components/UserTypesSection/UserTypesSection";
-import ItemsList from "../../Components/ItemsList/ItemsList";
+// import ItemsList from "../../Components/ItemsList/ItemsList";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
         <title>Home | TaskFlowPro</title>
       </Helmet>
       <Banner />
-      <ItemsList />
+      {/* <ItemsList /> */}
       <UserTypesSection />
       <Footer />
     </div>
