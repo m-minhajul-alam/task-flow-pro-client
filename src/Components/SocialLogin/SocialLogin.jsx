@@ -18,7 +18,7 @@ const SocialLogin = () => {
       };
       axiosPublic.post("/users", userInfo).then((res) => {
         console.log(res.data);
-        toast.success("Success with google!")
+        toast.success("Success with google!");
         navigate("/taskdashbord");
       });
     });
@@ -27,13 +27,15 @@ const SocialLogin = () => {
   return (
     <div className="mb-8">
       <div className="divider">or</div>
-      <div className="max-w-xs mx-auto">
+      <div className="max-w-xs mx-auto px-3 lg:px-0">
         <button
           onClick={handleGoogleSignIn}
-          className="btn btn-outline btn-primary text-lg rounded-full w-full hover:scale-105"
+          className="btn btn-outline border-primary text-primary text-lg rounded-full w-full hover:scale-105 hover:text-white hover:bg-primary hover:border-primary"
         >
-          <FaGoogle className="mr-2"></FaGoogle>
-          Continue With Google
+          <span className="flex items-center gap-2">
+            <FaGoogle></FaGoogle>
+            Continue With Google
+          </span>
         </button>
       </div>
     </div>
